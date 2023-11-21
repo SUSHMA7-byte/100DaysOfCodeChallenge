@@ -1,0 +1,34 @@
+          
+DESCRIPTION : 
+
+Write the program to reverse each word of a string.
+
+INPUT FORMAT:
+Input consists of one string
+
+OUTPUT FORMAT:
+The output consists of one string (reverse of the input string)
+
+Sample Input 0
+Hello World
+
+Sample Output 0
+﻿World Hello
+
+CODE:
+
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc=new Scanner(System.in);
+    String s=sc.nextLine();
+    String str[]=s.split("\\s+");
+    for(int i=str.length-1;i>=0;i--){
+      System.out.print(str[i]+" ");
+    }
+    
+  }
+}
