@@ -1,0 +1,73 @@
+1 ) DESCRIPTION:
+
+Antakshari is a popular parlor game played in India. Many word games are similar to antakshari. One such game is wordakshari. The game can be played by two or more people. The first player has to recite a word. The last letter of the word is then used by the next player to recite another word starting with that letter. The winner or winning team is decided by a process of elimination. The person or the team that cannot come up with a word with the right consonant is eliminated. - The following rules need to be followed while playing this game. - (i) All other words except the first word have to begin with the last letter of the previous word - (ii) No words can be repeated. write a program to print the wordakshari chain.
+
+INPUT FORMAT:
+Input consists of n+1 lines.
+The first n lines contain strings corresponding to the words in the chain.
+The last line of input contains the string #### to mark the end of the input.
+
+OUTPUT FORMAT:
+The output consists of the valid wordakshari chain.
+
+Sample_Input_0:-
+
+oracle
+error
+rohit
+####
+
+Sample_Output_0:-
+
+oracle
+error
+rohit
+
+EXPLANATION:
+
+﻿In oracle the last letter is e and so the next word will be error since it starts with e and it goes on like that and hence the output is
+
+- oracle
+
+- error
+
+- rohit
+
+
+CODE:
+
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc=new Scanner(System.in);
+    ArrayList <String> str=new ArrayList<>();
+    LinkedHashSet <String> str1=new LinkedHashSet<>();
+    while(sc.hasNext()){
+    str.add(sc.next());
+    }
+    String arr[]=new String[str.size()];
+    for(int i=0;i<str.size();i++){
+      arr[i]=str.get(i);
+    }
+    for(int i=0;i<arr.length-1;i++){
+     String s=arr[i];
+     String s1=arr[i+1];
+     if(s.charAt(s.length()-1) == s1.charAt(0)){
+       str1.add(s);
+       str1.add(s1);
+     }
+    }
+    String[] strArr = new String[str1.size()];
+        str1.toArray(strArr);
+
+        for (String e : strArr) {
+            System.out.println(e);
+        }
+  }
+}
+
+
+
