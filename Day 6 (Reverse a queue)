@@ -1,0 +1,86 @@
+
+Write a program to reverse the order of a queue. If the queue doesn't have a value, then print "Queue is empty".
+
+Format:
+
+Input:
+
+The input consists of a list of integers, a negative value indicates the end of a queue.
+
+Output:
+
+Print the reversed queue.
+
+Example:
+
+Input:
+
+1
+
+2
+
+3
+
+4
+
+-1
+
+Output:
+
+Before reversing:
+
+1 2 3 4
+
+After reversing:
+
+4 3 2 1
+
+CODE :
+
+import java.util.*;
+class Main
+{
+  
+    public static void rev(Queue<Integer> q){
+      Stack<Integer> st=new Stack<>();
+      
+      while(!q.isEmpty()){
+        st.push(q.poll());
+      }
+      
+      while(!st.isEmpty()){
+        q.offer(st.pop());
+      }
+    }
+  
+  public static void display(Queue<Integer> q){
+
+     for (Integer element : q) {
+            System.out.print(element + " ");
+        }
+  }
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Queue<Integer> q=new LinkedList<>();
+    Scanner sc=new Scanner(System.in);
+    while(true){
+      int n=sc.nextInt();
+      if(n>0){
+        q.offer(n);
+      }
+      else
+        break;
+    }
+        if(q.isEmpty()){
+        System.out.print( "Queue is empty");
+        System.exit(0);
+      }
+    System.out.println("Before reversing: ");
+    display(q);
+    rev(q);
+    System.out.println();
+	System.out.println("After reversing: ");
+    display(q);  
+  }
+}
