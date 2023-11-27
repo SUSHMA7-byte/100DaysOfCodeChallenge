@@ -1,0 +1,74 @@
+Write a program to find the maximum number in a list.
+
+Example:
+
+Input:
+
+1
+
+7
+
+2
+
+5
+
+-1
+
+Output:
+
+7
+
+CODE :
+
+import java.util.*;
+class Main
+{
+  class node{
+    int data;
+    node next;
+  }
+  public static node head=null;
+  public void insert(int x){
+    node p=head;
+    node a=new node();
+    a.data=x;
+    if(head==null){
+      head=a;
+    }
+    else{
+    while(p.next!=null){
+      p=p.next;
+    }
+    p.next=a;
+    }
+  }
+  
+  public int findMax(){
+    node p=head;
+    int max=0;
+    while(p!=null){
+      if(p.data>max){
+        max=p.data;
+      }
+        p=p.next;
+    }
+    return max;
+  }
+  
+  
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Main ob=new Main();
+    Scanner sc=new Scanner(System.in);
+    while(true){
+      int n=sc.nextInt();
+      if(n>0)
+        ob.insert(n);
+      else
+        break;
+    }
+ 
+    System.out.println(ob.findMax());
+  }
+}
