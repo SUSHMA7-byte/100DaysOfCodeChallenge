@@ -1,0 +1,48 @@
+Given a string, please return all the subsequences of that.
+
+Input Format : String Only
+
+Constraints : no
+
+Output Format :
+Subsequences of string, each subsequence in different line
+
+Sample Input 0 :
+abc
+
+Sample Output 0 :
+[abc, ab, ac, a, bc, b, c, ]
+
+Sample Input 1 :
+dd
+
+Sample Output 1 :
+[dd, d, d, ]
+
+CODE :
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    
+    public static void sub(ArrayList<String> lst,String s , String ans){
+        
+        if(s.length()==0){
+            lst.add(ans);
+            return;
+        }
+        
+        sub(lst,s.substring(1),ans+s.charAt(0));
+        sub(lst,s.substring(1),ans);
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        ArrayList <String> lst = new ArrayList<>();
+        sub(lst,str,"");
+        System.out.print(lst);
+    }
+}
